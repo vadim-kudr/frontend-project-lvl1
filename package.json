@@ -5,10 +5,11 @@
   "main": "index.js",
   "type": "module",
   "bin": {
-    "brain-games": "bin/brain-games.js"
+    "brain-games": "bin/brain-games.js",
+    "brain-even": "bin/brain-even.js"
   },
   "scripts": {
-    "start": "bin/brain-games.js",
+    "start": "bin/brain-even.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
