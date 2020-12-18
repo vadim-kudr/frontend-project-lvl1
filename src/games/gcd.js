@@ -29,6 +29,6 @@ export default function calcGame() {
   startGame({
     description: 'What is the result of the expression?',
     questionGenerator,
-    answerCalculator
+    answerCalculator,
   });
 }
