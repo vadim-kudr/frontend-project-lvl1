@@ -2,14 +2,17 @@ import startGame from '../index.js';
 import { generateRandomNumber } from '../utility.js';
 
 function questionGenerator() {
+  const progressionLength = 10;
+
   const step = generateRandomNumber() + 1; // > 0
   const firstNumber = generateRandomNumber();
-  const hiddenIndex = generateRandomNumber() % 10;
+  const hiddenIndex = generateRandomNumber() % progressionLength;
 
-  const array = [firstNumber];
+  const array = [];
 
-  for (let i = 0, acc = firstNumber; i < 9; i++) {
-    array.push(acc += step);
+  for (let i = 0, acc = firstNumber; i < progressionLength; i++) {
+    array.push(acc);
+    acc += step;
   }
 
   const answer = array[hiddenIndex];
