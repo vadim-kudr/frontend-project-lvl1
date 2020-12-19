@@ -7,31 +7,32 @@ function generateRandomMathOperator() {
   return operators[index];
 }
 
-function generateRandomMathExpression() {
-  const firstNumber = generateRandomNumber();
-  const secondNumber = generateRandomNumber();
-  return `${firstNumber} ${generateRandomMathOperator()} ${secondNumber}`;
-}
-
-function calcMathExpression(expression) {
-  const [
-    firstNumber,
-    operator,
-    secondNumber,
-  ] = expression.split(' ');
-
+function calcMathExpression(firstNumber, operator, secondNumber) {
   switch (operator) {
-    case '+': return Number(firstNumber) + Number(secondNumber);
+    case '+': return firstNumber + secondNumber;
     case '-': return firstNumber - secondNumber;
     case '*': return firstNumber * secondNumber;
     default: return null;
   }
 }
 
+function generateRandomMathExpression() {
+  const firstNumber = generateRandomNumber();
+  const secondNumber = generateRandomNumber();
+  const operator = generateRandomMathOperator();
+
+  const question = `${firstNumber} ${operator} ${secondNumber}`;
+  const answer = calcMathExpression(firstNumber, operator, secondNumber);
+
+  return {
+    question,
+    answer: String(answer),
+  };
+}
+
 export default function calcGame() {
   startGame({
     description: 'What is the result of the expression?',
     questionGenerator: generateRandomMathExpression,
-    answerCalculator: (expression) => String(calcMathExpression(expression)),
   });
 }

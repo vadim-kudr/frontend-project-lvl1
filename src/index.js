@@ -4,7 +4,6 @@ export default function startGame(params) {
   const {
     description,
     questionGenerator,
-    answerCalculator,
   } = params;
 
   const userName = askUserNameAfterGreeting();
@@ -12,15 +11,17 @@ export default function startGame(params) {
   console.log(description);
 
   for (let i = 0; i < 3; i++) {
-    const question = questionGenerator();
+    const {
+      question,
+      answer,
+    } = questionGenerator();
 
     console.log(`Question: ${question}`);
 
-    const answer = askAnswer();
-    const rightAnswer = answerCalculator(question);
+    const userAnswer = askAnswer();
 
-    if (answer !== rightAnswer) {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`);
+    if (userAnswer !== answer) {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
       console.log(`Let's try again, ${userName}!`);
       return;
     }

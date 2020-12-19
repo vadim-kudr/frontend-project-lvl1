@@ -12,23 +12,18 @@ function findGCD(a, b) {
 function questionGenerator() {
   const firstNumber = generateRandomNumber();
   const secondNumber = generateRandomNumber();
-  return `${firstNumber} ${secondNumber}`;
-}
-
-function answerCalculator(expression) {
-  const [
-    firstNumber,
-    secondNumber,
-  ] = expression.split(' ');
 
   const gcd = findGCD(firstNumber, secondNumber);
-  return String(gcd);
+
+  return {
+    question: `${firstNumber} ${secondNumber}`,
+    answer: String(gcd),
+  };
 }
 
-export default function calcGame() {
+export default function gcdGame() {
   startGame({
-    description: 'What is the result of the expression?',
+    description: 'Find the greatest common divisor of given numbers.',
     questionGenerator,
-    answerCalculator,
   });
 }
