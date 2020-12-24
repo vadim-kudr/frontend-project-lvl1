@@ -1,20 +1,22 @@
 import startGame from '../index.js';
 import { generateRandomNumber } from '../utility.js';
 
-function questionGenerator() {
-  const number = generateRandomNumber();
+function isEven(number) {
+  return number % 2 === 0;
+}
 
-  const isEven = number % 2 === 0;
+function generateTask() {
+  const number = generateRandomNumber();
 
   return {
     question: number,
-    answer: isEven ? 'yes' : 'no',
+    answer: isEven(number) ? 'yes' : 'no',
   };
 }
 
 export default function evenGame() {
   startGame({
     description: 'Answer "yes" if the number is even, otherwise answer "no".',
-    questionGenerator,
+    generateTask,
   });
 }

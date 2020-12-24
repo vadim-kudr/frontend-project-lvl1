@@ -9,7 +9,7 @@ function findGCD(a, b) {
   return findGCD(b, a % b);
 }
 
-function questionGenerator() {
+function generateTask() {
   const firstNumber = generateRandomNumber();
   const secondNumber = generateRandomNumber();
 
@@ -24,6 +24,6 @@ function questionGenerator() {
 export default function gcdGame() {
   startGame({
     description: 'Find the greatest common divisor of given numbers.',
-    questionGenerator,
+    generateTask,
   });
 }

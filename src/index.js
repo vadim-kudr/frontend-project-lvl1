@@ -1,20 +1,28 @@
 import { askUserNameAfterGreeting, askAnswer } from './cli.js';
+// не совсем понятно про cli.js, имя которого намекает на функционал взаимодействия с консолью
+// в 5м шаге есть ссылка на https://ru.wikipedia.org/wiki/Don’t_repeat_yourself
+// Файл cli.js не предназначен для описания логики игр.
+// Файлы, (src/cli.js, bin/brain-games.js), оставьте как есть и не смешивайте с остальным кодом.
+// получается ученик должен продублировать часть кода в index.js?
 
+// params - object на случай расширения функционала
+// с заменой на 2 агрумента согласен
 export default function startGame(params) {
   const {
     description,
-    questionGenerator,
+    generateTask,
   } = params;
 
   const userName = askUserNameAfterGreeting();
 
   console.log(description);
 
-  for (let i = 0; i < 3; i++) {
+  const rounds = 3;
+  for (let i = 0; i < rounds; i += 1) {
     const {
       question,
       answer,
-    } = questionGenerator();
+    } = generateTask();
 
     console.log(`Question: ${question}`);
 

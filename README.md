@@ -1,3 +1,14 @@
+Пакет включает в себя набор игр, которые доступны через консоль.
+
+Для прохождения каждой игры неодходимо правильно ответить на 3 вопроса.
+
+Доступные игры:
+1. brain-even - определение четности числа
+2. brain-calc - расчет математического выражения
+3. brain-gcd - поиск НОД
+4. brain-progression - поиск пропущенного числа в численной прогрессии
+5. brain-prime - определение простого числа
+
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/vadim-kudr/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/vadim-kudr/frontend-project-lvl1/actions)
 

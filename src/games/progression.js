@@ -1,25 +1,22 @@
 import startGame from '../index.js';
 import { generateRandomNumber } from '../utility.js';
 
-function questionGenerator() {
+function generateTask() {
   const progressionLength = 10;
 
-  const step = generateRandomNumber() + 1; // > 0
+  const step = generateRandomNumber(1);
   const firstNumber = generateRandomNumber();
   const hiddenIndex = generateRandomNumber() % progressionLength;
 
-  const array = [];
+  const numbers = Array(progressionLength)
+    .fill()
+    .map((item, index) => firstNumber + step * index);
 
-  for (let i = 0, acc = firstNumber; i < progressionLength; i++) {
-    array.push(acc);
-    acc += step;
-  }
-
-  const answer = array[hiddenIndex];
-  array[hiddenIndex] = '..';
+  const answer = numbers[hiddenIndex];
+  numbers[hiddenIndex] = '..';
 
   return {
-    question: array.join(' '),
+    question: numbers.join(' '),
     answer: String(answer),
   };
 }
@@ -27,6 +24,6 @@ function questionGenerator() {
 export default function progressionGame() {
   startGame({
     description: 'What number is missing in the progression?',
-    questionGenerator,
+    generateTask,
   });
 }

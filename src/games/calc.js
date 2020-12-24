@@ -3,7 +3,7 @@ import { generateRandomNumber } from '../utility.js';
 
 function generateRandomMathOperator() {
   const operators = ['+', '-', '*'];
-  const index = generateRandomNumber() % 3;
+  const index = generateRandomNumber() % operators.length;
   return operators[index];
 }
 
@@ -33,6 +33,6 @@ function generateRandomMathExpression() {
 export default function calcGame() {
   startGame({
     description: 'What is the result of the expression?',
-    questionGenerator: generateRandomMathExpression,
+    generateTask: generateRandomMathExpression,
   });
 }

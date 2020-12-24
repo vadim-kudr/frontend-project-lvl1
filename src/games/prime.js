@@ -2,16 +2,19 @@ import startGame from '../index.js';
 import { generateRandomNumber } from '../utility.js';
 
 function isPrime(number) {
-  for (let i = 2; i < number; i++) {
+  if (number <= 1) {
+    return false;
+  }
+  for (let i = 2; i <= number / 2; i += 1) {
     if (number % i === 0) {
       return false;
     }
   }
-  return number > 1;
+  return true;
 }
 
-function questionGenerator() {
-  const number = generateRandomNumber();
+function generateTask() {
+  const number = generateRandomNumber(0, 100);
 
   return {
     question: number,
@@ -22,6 +25,6 @@ function questionGenerator() {
 export default function primeGame() {
   startGame({
     description: 'Answer "yes" if given number is prime. Otherwise answer "no".',
-    questionGenerator,
+    generateTask,
   });
 }
