@@ -1,4 +1,4 @@
-import startGame from '../index.js';
+import playGame from '../index.js';
 import { generateRandomNumber } from '../utility.js';
 
 function isEven(number) {
@@ -15,7 +15,7 @@ function generateTask() {
 }
 
 export default function evenGame() {
-  startGame({
+  playGame({
     description: 'Answer "yes" if the number is even, otherwise answer "no".',
     generateTask,
   });

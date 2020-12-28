@@ -14,7 +14,3 @@ export function askUserNameAfterGreeting() {
   console.log(`Hello, ${name}!`);
   return name;
 }
-
-export function askAnswer() {
-  return readlineSync.question('Your answer: ');
-}

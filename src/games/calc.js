@@ -1,4 +1,4 @@
-import startGame from '../index.js';
+import playGame from '../index.js';
 import { generateRandomNumber } from '../utility.js';
 
 function generateRandomMathOperator() {
@@ -31,7 +31,7 @@ function generateRandomMathExpression() {
 }
 
 export default function calcGame() {
-  startGame({
+  playGame({
     description: 'What is the result of the expression?',
     generateTask: generateRandomMathExpression,
   });

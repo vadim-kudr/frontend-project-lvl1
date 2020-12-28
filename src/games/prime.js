@@ -1,4 +1,4 @@
-import startGame from '../index.js';
+import playGame from '../index.js';
 import { generateRandomNumber } from '../utility.js';
 
 function isPrime(number) {
@@ -23,7 +23,7 @@ function generateTask() {
 }
 
 export default function primeGame() {
-  startGame({
+  playGame({
     description: 'Answer "yes" if given number is prime. Otherwise answer "no".',
     generateTask,
   });

@@ -1,4 +1,4 @@
-import startGame from '../index.js';
+import playGame from '../index.js';
 import { generateRandomNumber } from '../utility.js';
 
 function findGCD(a, b) {
@@ -22,7 +22,7 @@ function generateTask() {
 }
 
 export default function gcdGame() {
-  startGame({
+  playGame({
     description: 'Find the greatest common divisor of given numbers.',
     generateTask,
   });
